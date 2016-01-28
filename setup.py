@@ -56,45 +56,26 @@ if platform.system() == "Linux":
 	
 	# if installation is done on client, the autossh automatically kicks in the daemon
 	try:
-	    ClientorServer = raw_input("Is this a client[C] or a server[S]? [C]/[S]: ")
-	    if ClientorServer == 'C':
-		print("[*] Moving autossh client into the /usr/local/bin/ directory...")
-		subprocess.Popen("yes | cp Client/connect.sh /usr/local/bin/", shell=True).wait()
-		print("[*] Installing autossh client...")
-		subprocess.Popen("chmod +x /usr/local/bin/connect.sh", shell=True).wait()
-		print("[*] Installing autossh as startup application...")
-		subprocess.Popen("yes | cp Client/connect.sh /etc/init.d/", shell=True).wait()
-                subprocess.Popen("chmod +x /etc/init.d/connect.sh", shell=True).wait()
-		
-		# if the link of the .pem security file is provided, an automatic download is made
-		DownloadPEM = raw_input("What is the link to download the .PEM file. If no download link, input [N]: ")
-		DownloadFile = "wget %s" % DownloadPEM
-
-		# automatic installation will kick-in followed by a request to restart the PC
-		try:
-		    subprocess.Popen(DownloadPEM, shell=True).wait()
-		    print("[*] Downloading ssh .PUB file from site and installing...")
-		    subprocess.Popen("chmod 400 *.pub", shell=True).wait()
-                    subprocess.Popen("yes | cp *.pub /etc/init.d/", shell=True).wait()
-                    subprocess.Popen("yes | cp *.pub /usr/local/bin/", shell=True).wait()
-		except subprocess.CalledProcessError as e:
-		    pass
-
-            if ClientorServer == 'S':
-                subprocess.call("ssh-keygen -t rsa -b 2048 -v", shell=True)
-
-	except ValueError:
-	    print("[!] Please input C or S.")
-        except subprocess.CalledProcessError as e:
-            print("[!] Installation has failed. Please retry again")
+	    rootname = raw_input("What is the server's rootname@ipaddress?: ")
+	    print("[*] Moving autossh client into the /usr/local/bin/ directory...")
+	    subprocess.Popen("yes | cp Client/connect.sh /usr/local/bin/", shell=True).wait()
+	    print("[*] Installing autossh client...")
+	    subprocess.Popen("chmod +x /usr/local/bin/connect.sh", shell=True).wait()
+	    print("[*] Installing autossh as startup application...")
+	    subprocess.Popen("yes | cp Client/connect.sh /etc/init.d/", shell=True).wait()
+            subprocess.Popen("chmod +x /etc/init.d/connect.sh", shell=True).wait()
+            subprocess.call("printf 'server\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
+	    print("[*] Copying SSH-Keys file over to server...")
+	    rootnamePopen = "ssh-copy-id -i server.pub server@192.168.1.202"
+	    subprocess.call(rootnamePopen, shell=True)
+            print("[*] Installing private keys inside protected folder...")		
+	except subprocess.CalledProcessError as e:
+	    pass
 	
 	# if the installation has been successful
 	if os.path.isfile("/usr/local/bin/connect.sh"):
-            if os.path.isfile("/usr/local/bin/server.pub"):
-		print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.sh on the terminal")
-		subprocess.call("connect.sh", shell=True)
-	if os.path.isfile("server.pub") and ClientorServer == 'S':
-                print("[*] Certificate successfully generated. Please insert a physical USB to transfer the server.pub file to the Client")
+	    print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.sh on the terminal")
+	    subprocess.Popen("connect.sh", shell=True)
 	else:
 	    print("[!] Installation has failed. Please ensure that connect.sh and .pub file is installed")
 
