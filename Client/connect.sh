@@ -1,12 +1,16 @@
 #!/bin/bash
 
 #Configuration for ssh keys, port of server and the username with ip address of server
-sshfile = "/home/install/Downloads/auto-ssh-tunnel"
-#portnumber = 50000:localhost:22
-#useripaddress = server@192.168.1.202
+
+# Please insert according to format:
+# /usr/bin/ssh -i <directory/server> -N -R <portnumber:localhost:22> <serveripaddress>
+# 
+# sshfile = "/home/install/Downloads/auto-ssh-tunnel/server"
+# portnumber = 50000:localhost:22
+# serveripaddress = server@192.168.1.202
 
 createTunnel() {
-  /usr/bin/ssh -i $sshfile -N -R 50000:localhost:22 server@192.168.1.202
+  /usr/bin/ssh -i "/home/install/Downloads/auto-ssh-tunnel/server" -N -R 50000:localhost:22 server@192.168.1.202
   if [[ $? -eq 0 ]]; then
     echo Tunnel to jumpbox created successfully
   else
