@@ -59,15 +59,15 @@ if platform.system() == "Linux":
 	    ClientorServer = raw_input("Is this a client[C] or a server[S]? [C]/[S]: ")
 	    if ClientorServer == 'C':
 		print("[*] Moving autossh client into the /usr/local/bin/ directory...")
-		subprocess.Popen("cp Client/connect.sh /usr/local/bin/", shell=True).wait()
+		subprocess.Popen("yes | cp Client/connect.sh /usr/local/bin/", shell=True).wait()
 		print("[*] Installing autossh client...")
 		subprocess.Popen("chmod +x /usr/local/bin/connect.sh", shell=True).wait()
 		print("[*] Installing autossh as startup application...")
-		subprocess.Popen("cp Client/connect.sh /etc/init.d/", shell=True).wait()
+		subprocess.Popen("yes | cp Client/connect.sh /etc/init.d/", shell=True).wait()
                 subprocess.Popen("chmod +x /etc/init.d/connect.sh", shell=True).wait()
 		
 		# if the link of the .pem security file is provided, an automatic download is made
-		DownloadPEM = raw_input("What is the link to download the .PEM file: ")
+		DownloadPEM = raw_input("What is the link to download the .PEM file. If no download link, input [N]: ")
 		DownloadFile = "wget %s" % DownloadPEM
 
 		# automatic installation will kick-in followed by a request to restart the PC
@@ -75,8 +75,8 @@ if platform.system() == "Linux":
 		    subprocess.Popen(DownloadPEM, shell=True).wait()
 		    print("[*] Downloading ssh .PUB file from site and installing...")
 		    subprocess.Popen("chmod 400 *.pub", shell=True).wait()
-                    subprocess.Popen("cp *.pub /etc/init.d/", shell=True).wait()
-                    subprocess.Popen("cp *.pub /usr/local/bin/", shell=True).wait()
+                    subprocess.Popen("yes | cp *.pub /etc/init.d/", shell=True).wait()
+                    subprocess.Popen("yes | cp *.pub /usr/local/bin/", shell=True).wait()
 		except subprocess.CalledProcessError as e:
 		    pass
 
@@ -93,7 +93,7 @@ if platform.system() == "Linux":
             if os.path.isfile("/usr/local/bin/*.pub"):
 		print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.sh on the terminal")
 	if os.path.isfile("server.pub"):
-                print("[*] Certificate successfully generated. Please insert a physical USB to transfer the server.pem file to the Client")
+                print("[*] Certificate successfully generated. Please insert a physical USB to transfer the server.pub file to the Client")
 	else:
 	    print("[!] Installation has failed. Please ensure that connect.sh and .pub file is installed")
 
