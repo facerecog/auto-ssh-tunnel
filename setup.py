@@ -90,12 +90,12 @@ if platform.system() == "Linux":
 	
 	# if the installation has been successful
 	if os.path.isfile("/usr/local/bin/connect.sh"):
-            if os.path.isfile("/usr/local/bin/*.pem"):
+            if os.path.isfile("/usr/local/bin/*.pub"):
 		print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.sh on the terminal")
 	if os.path.isfile("server.pub"):
                 print("[*] Certificate successfully generated. Please insert a physical USB to transfer the server.pem file to the Client")
 	else:
-	    print("[!] Installation has failed. Please ensure that connect.sh and .pem file is installed")
+	    print("[!] Installation has failed. Please ensure that connect.sh and .pub file is installed")
 
 # if the platform is running on a MAC, a version will be ready soon
 if platform.system() == 'Darwin':
