@@ -90,9 +90,10 @@ if platform.system() == "Linux":
 	
 	# if the installation has been successful
 	if os.path.isfile("/usr/local/bin/connect.sh"):
-            if os.path.isfile("/usr/local/bin/*.pub"):
+            if os.path.isfile("/usr/local/bin/server.pub"):
 		print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.sh on the terminal")
-	if os.path.isfile("server.pub"):
+		subprocess.call("connect.sh", shell=True)
+	if os.path.isfile("server.pub") and ClientorServer == 'S':
                 print("[*] Certificate successfully generated. Please insert a physical USB to transfer the server.pub file to the Client")
 	else:
 	    print("[!] Installation has failed. Please ensure that connect.sh and .pub file is installed")
