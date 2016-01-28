@@ -66,8 +66,7 @@ if platform.system() == "Linux":
             subprocess.Popen("chmod +x /etc/init.d/connect.sh", shell=True).wait()
             subprocess.call("printf 'server\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
 	    print("[*] Copying SSH-Keys file over to server...")
-	    rootnamePopen = "ssh-copy-id -i server.pub server@192.168.1.202"
-	    subprocess.call(rootnamePopen, shell=True)
+	    subprocess.call(['ssh-copy-id', '-i', 'server.pub', rootname])
             print("[*] Installing private keys inside protected folder...")		
 	except subprocess.CalledProcessError as e:
 	    pass
