@@ -18,6 +18,10 @@ It's written in PYTHON scripting language.
 
 ## Getting started
 
+*Before you begin, make a backup of /etc/ssh/ssh_config as setup.py will append configuration lines to it!*
+
+$ sudo cp /etc/ssh/ssh_config /etc/ssh/ssh_config.backup.$(date +"%H.%M.%S_%m.%d.%Y")
+
 First, clone the repository using git (recommended):
 
 ```bash

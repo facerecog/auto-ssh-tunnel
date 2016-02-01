@@ -6,7 +6,7 @@ import subprocess
 # Set-up the config file:
 location_of_pem_file = "/home/install/Downloads/auto-ssh-tunnel/server"
 port_open = "50000"
-username_ipaddress = "server@192.168.1.202"
+username_ipaddress = "server@118.189.176.239"
 
 # A function that checks if there is an existing ssh process running in the backgroun:
 def ssh_running():
