@@ -47,9 +47,9 @@ The first time you run `setup.py install`, you'll be guided through a wizard in 
 
 ## Configuration wizard
 
-The configuration wizard is pretty self-explanatory. One thing to notice is that if you choose "S", you will generate a `current_directory/<server>`. Rename the file to `current_directory/<server.pem>`. To create a SSH tunnel on the Client side, insert a physical USB on the server and transfer it to the Client and have it stored in another folder, such as in `/auto-ssh-tunnel/`. If you choose "C", you will require a pem file in the folder.
+The configuration wizard is pretty self-explanatory. One thing to notice is that you will generate a `current_directory/<server>`. The file to `current_directory/<server>` is your pem key to enable this client to ssh to the server without the use of password. During the setup.py install, a public key will be pushed to the server and saved in `/.ssh/authorized_keys` You should never exchange your private pem keys to others.
 
-### Configuration as a Server
+### Configuration as a Client
 
 ```bash
 Generating public/private rsa key pair.
@@ -63,10 +63,11 @@ bb:c6:9c:ee:6b:c0:67:58:b2:bb:4b:44:72:d3:cc:a5 localhost@localhost
 The key's randomart image is:
 ```
 
-#### Configuration as a Client
+#### Configuration as a Server
 ```bash
-What is the link to download the .PEM file: <Please insert a valid link that contains the .pem file, if any>
+$ ifconfig
 ```
+Port forward your IP address to port 22 on your modem or router
 
 ## Available commands
 
