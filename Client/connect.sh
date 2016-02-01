@@ -6,7 +6,7 @@
 # /usr/bin/ssh -i <directory/server> -N -R <portnumber:localhost:22> <serveripaddress>
 # 
 # sshfile = "/home/install/Downloads/auto-ssh-tunnel/server"
-# portnumber = 50000:localhost:22
+# portnumber = 50000
 # serveripaddress = server@192.168.1.202
 
 createTunnel() {
