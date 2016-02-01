@@ -58,12 +58,12 @@ if platform.system() == "Linux":
 	try:
 	    rootname = raw_input("What is the server's rootname@ipaddress?: ")
 	    print("[*] Moving autossh client into the /usr/local/bin/ directory...")
-	    subprocess.Popen("yes | cp Client/connect.sh /usr/local/bin/", shell=True).wait()
+	    subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True).wait()
 	    print("[*] Installing autossh client...")
-	    subprocess.Popen("chmod +x /usr/local/bin/connect.sh", shell=True).wait()
+	    subprocess.Popen("chmod +x /usr/local/bin/connect.py", shell=True).wait()
 	    print("[*] Installing autossh as startup application...")
-	    subprocess.Popen("yes | cp Client/connect.sh /etc/init.d/", shell=True).wait()
-            subprocess.Popen("chmod +x /etc/init.d/connect.sh", shell=True).wait()
+	    subprocess.Popen("yes | cp Client/connect.py /etc/init.d/", shell=True).wait()
+            subprocess.Popen("chmod +x /etc/init.d/connect.py", shell=True).wait()
             subprocess.call("printf 'server\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
 	    print("[*] Copying SSH-Keys file over to server...")
 	    subprocess.call(['ssh-copy-id', '-i', 'server.pub', rootname])
@@ -72,11 +72,11 @@ if platform.system() == "Linux":
 	    pass
 	
 	# if the installation has been successful
-	if os.path.isfile("/usr/local/bin/connect.sh"):
-	    print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.sh on the terminal")
-	    subprocess.Popen("connect.sh", shell=True)
+	if os.path.isfile("/usr/local/bin/connect.py"):
+	    print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.py on the terminal")
+	    subprocess.Popen("connect.py", shell=True)
 	else:
-	    print("[!] Installation has failed. Please ensure that connect.sh and .pub file is installed")
+	    print("[!] Installation has failed. Please ensure that connect.py and .pub file is installed")
 
 # if the platform is running on a MAC, a version will be ready soon
 if platform.system() == 'Darwin':
