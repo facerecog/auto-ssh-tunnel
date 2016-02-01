@@ -1,12 +1,12 @@
 # Automatic SSH Tunnel
 
-Automatic SSH Tunnel is a **BASH** script which can be used to create a reverse ssh tunnel between multiple computers running Linux and a centralized server.
+Automatic SSH Tunnel is a **PYTHON** script which can be used to create a reverse ssh tunnel between multiple computers running Linux and a centralized server.
 
-It's written in BASH scripting language and uses PYTHON to setup.
+It's written in PYTHON scripting language.
 
 **Why use this script?**
 
-* **Portable:** It's written in BASH scripting and only needs *openSSH-server* (openSSH-server is a tool to enable computers to behave as a pseudo server to ensure a successful reverse tunnelling).
+* **Portable:** It's written in PYTHON scripting and only needs *openSSH-server* (openSSH-server is a tool to enable computers to behave as a pseudo server to ensure a successful reverse tunnelling).
 * **Secure:** It requires a USB hardware physical transfer of the ssh keys.
 
 ## Features
@@ -28,13 +28,13 @@ Then change the PORT and the IP ADDRESS of the server we are connecting to:
 
 ```bash
 $ cd Client
-$ nano connect.sh
+$ nano connect.py
 ```
 
 ```bash
-sshfile = "<location of .pem file"
-portnumber = <choice of port number:localhost:22>
-useripaddress = <username>@<ip address of server>
+location_of_pem_file = "/home/install/Downloads/auto-ssh-tunnel/server"
+port_open = "50000"
+username_ipaddress = "server@192.168.1.202"
 ```
 
 Then give the execution permission to the setup.py script and run it:
@@ -70,7 +70,7 @@ What is the link to download the .PEM file: <Please insert a valid link that con
 
 ## Available commands
 
-* **connect.sh**;
+* **connect.py**;
 Manually connect the client to the server
 
 ## Tested Environments
