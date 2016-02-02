@@ -58,16 +58,16 @@ if platform.system() == "Linux":
 	try:
 	    rootname = raw_input("What is the server's rootname@ipaddress?: ")
 	    print("[*] Moving autossh client into the /usr/local/bin/ directory...")
-	    subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True).wait()
 	    print("[*] Installing autossh client...")
-	    subprocess.Popen("chmod +x /usr/local/bin/connect.py", shell=True).wait()
 	    print("[*] Installing autossh as startup application...")
 	    subprocess.Popen("yes | cp Client/connect.py /etc/init.d/", shell=True).wait()
             subprocess.Popen("chmod +x /etc/init.d/connect.py", shell=True).wait()
             subprocess.call("printf 'server\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
 	    print("[*] Copying SSH-Keys file over to server...")
 	    subprocess.call(['ssh-copy-id', '-i', 'server.pub', rootname])
-            print("[*] Installing private keys inside protected folder...")		
+            print("[*] Installing private keys inside protected folder...")
+            subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True).wait()
+	    subprocess.Popen("chmod +x /usr/local/bin/connect.py", shell=True).wait()		
 	except subprocess.CalledProcessError as e:
 	    pass
 	
