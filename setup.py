@@ -57,9 +57,9 @@ if platform.system() == "Linux":
 	# if installation is done on client, the autossh automatically kicks in the daemon
 	try:
 	    rootname = raw_input("What is the server's rootname@ipaddress?: ")
-	    print("[*] Moving autossh client into the /usr/local/bin/ directory...")
 	    print("[*] Installing autossh client...")
 	    print("[*] Installing autossh as startup application...")
+	    subprocess.Popen("cd && mkdir .ssh", shell=True).wait()
 	    subprocess.Popen("yes | cp Client/connect.py /etc/init.d/", shell=True).wait()
             subprocess.Popen("chmod +x /etc/init.d/connect.py", shell=True).wait()
             subprocess.call("printf 'server\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
@@ -67,7 +67,8 @@ if platform.system() == "Linux":
 	    subprocess.call(['ssh-copy-id', '-i', 'server.pub', rootname])
             print("[*] Installing private keys inside protected folder...")
             subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True).wait()
-	    subprocess.Popen("chmod +x /usr/local/bin/connect.py", shell=True).wait()		
+	    subprocess.Popen("chmod +x /usr/local/bin/connect.py", shell=True).wait()
+	    print("[*] Moving autossh client into the /usr/local/bin/ directory...")
 	except subprocess.CalledProcessError as e:
 	    pass
 	
