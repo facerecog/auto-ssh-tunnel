@@ -4,7 +4,7 @@ import re
 import subprocess
 
 # Set-up the config file:
-location_of_pem_file = "/home/install/Downloads/auto-ssh-tunnel/server"
+location_of_pem_file = "/etc/auto-ssh-tunnel/priv_key"
 port_open = "50000"
 username_ipaddress = "server@192.168.1.202"
 
