@@ -63,10 +63,10 @@ if platform.system() == "Linux":
 	    subprocess.Popen("cd && mkdir .ssh", shell=True).wait()
 	    subprocess.Popen("yes | cp Client/connect.py /etc/init.d/", shell=True).wait()
             subprocess.Popen("chmod +x /etc/init.d/connect.py", shell=True).wait()
-            subprocess.call("printf 'server\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
+            subprocess.call("printf 'priv_key\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
 
 	    print("[*] Copying SSH-Keys file over to server...")
-	    subprocess.call(['ssh-copy-id', '-i', 'server.pub', rootname])
+	    subprocess.call(['ssh-copy-id', '-i', 'priv_key.pub', rootname])
 
             print("[*] Installing private keys inside protected folder...")
             subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True).wait()
@@ -75,8 +75,8 @@ if platform.system() == "Linux":
 	    print("[*] Moving autossh client into the /usr/local/bin/ directory...")
             
 	    print("[*] Moving private key to /etc/auto-ssh-tunnel/")
-            subprocess.Popen("/etc/auto-ssh-tunnel", shell=True).wait()
-            subprocess.Popen("yes | cp server /etc/aut-ssh-tunnel/priv_key", shell=True).wait()
+            subprocess.Popen("mkdir /etc/auto-ssh-tunnel", shell=True).wait()
+            subprocess.Popen("yes | cp priv_key /etc/auto-ssh-tunnel/priv_key", shell=True).wait()
 	except subprocess.CalledProcessError as e:
 	    pass
 	
