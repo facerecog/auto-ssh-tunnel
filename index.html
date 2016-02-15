@@ -19,7 +19,7 @@
 
         <header>
           <h1>auto-ssh-tunnel</h1>
-          <h2>Automatically create a Reverse SSH Tunnel</h2>
+          <h2>Automatically create a Reverse SSH Tunnel !</h2>
         </header>
 
         <section id="downloads" class="clearfix">
@@ -41,11 +41,20 @@
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h3>
 
 <ul>
-<li><p>It only needs openSSH-server. openSSH-server enables computers to behave as a pseudo server, thereby facilitating reverse tunnelling.</p></li>
-<li><p>You do not need to transfer any ssh keys onto the device you are installing it on. There will be an automatic generation of ssh keys.  </p></li>
-<li><p>This script works with Debian-based systems, including Ubuntu</p></li>
-<li><p>There is no requirement for you to store the server's password</p></li>
-<li><p>We provide a simple 3-step configuration wizard (requires less than 1 minute to complete set-up)</p></li>
+<li><p>Automatically configures and runs <code>openssh</code> to set up a reverse ssh connection during boot up </p></li>
+<li><p>Automatically generates ssh keys.</p></li>
+<li><p>No need to store the server's password</p></li>
+<li><p>Works with Debian-based systems, including Ubuntu</p></li>
+<li><p>3-step configuration wizard that requires less than 1 minute to set up</p></li>
+</ul>
+
+<h1>
+<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>System requirements</strong>
+</h1>
+
+<ul>
+<li><p>These instructions were tested on Ubuntu 15.10. </p></li>
+<li><p>The installation script automatically installs openssh-server with Apt.</p></li>
 </ul>
 
 <h1>
@@ -54,6 +63,65 @@
 
 <h3>
 <a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h3>
+
+<p>Ubuntu: 
+Clone the latest repository version from Github (recommended):
+$ git clone <a href="https://github.com/facerecog/auto-ssh-tunnel.git">https://github.com/facerecog/auto-ssh-tunnel.git</a></p>
+
+<p>Alternatively, download the .tar.gz file from the top of this page and unpack it:</p>
+
+<p>$ wget ______ &amp;&amp; tar xf ______</p>
+
+<p>Run configuration.py to specify the port, username, and IP address of the SSH server:</p>
+
+<p>$ python configure.py   
+Installation
+Run the following command:</p>
+
+<p>$ sudo python setup.py install</p>
+
+<p>Enter the server’s @ as prompted:</p>
+
+<p>What is the server’s rootname@ipaddress?:</p>
+
+<p>You will be prompted for passphrase. Give a blank passphrase.</p>
+
+<p>The installation will proceed automatically. If successful, the output of all the commands should be roughly the following, and end with “[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.py on the terminal.”</p>
+
+<p>Reading package lists... Done
+Building dependency tree<br>
+Reading state information... Done
+openssh-server is already the newest version.
+0 upgraded, 0 newly installed, 0 to remove and 118 not upgraded.
+What is the server's rootname@ipaddress?: "@"
+[<em>] Installing autossh client...
+[</em>] Installing autossh as startup application...
+mkdir: cannot create directory ‘.ssh’: File exists
+yes: standard output: Broken pipe
+yes: write error
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): priv_key already exists.
+Overwrite (y/n)? [*] Copying SSH-Keys file over to server...
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+"@" 's password: 
+Number of key(s) added: 1</p>
+
+<p>Now try logging into the machine, with:   "ssh ' "@" '"
+and check to make sure that only the key(s) you wanted were added.</p>
+
+<p>[<em>] Installing private keys inside protected folder...
+yes: standard output: Broken pipe
+yes: write error
+[</em>] Moving autossh client into the /usr/local/bin/ directory...
+[*] Moving private key to /etc/auto-ssh-tunnel/
+mkdir: cannot create directory ‘/etc/auto-ssh-tunnel’: File exists
+yes: standard output: Broken pipe
+yes: write error</p>
+
+<p>[*] We are now finished with the installation! Restart the client to complete the installation. To run autossh, input connect.py on the terminal.</p>
+
+<hr>
 
 <p>First, clone the repository using git (recommended):</p>
 
