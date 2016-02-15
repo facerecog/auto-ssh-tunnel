@@ -1,34 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>auto-ssh-tunnel (Automatic SSH Tunnel) by facerecog</title>
 
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <title>auto-ssh-tunnel (Automatic SSH Tunnel) by facerecog</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
+    <div class="wrapper">
+      <header>
         <h1>auto-ssh-tunnel (Automatic SSH Tunnel)</h1>
-        <h2>Python script to create a Reverse SSH Tunnel between multiple computers running a Unix-based client and centralized server. </h2>
-        <a href="https://github.com/facerecog/auto-ssh-tunnel" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+        <p>Python script to create a Reverse SSH Tunnel between multiple computers running a Unix-based client and centralized server. </p>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+        <p class="view"><a href="https://github.com/facerecog/auto-ssh-tunnel">View the Project on GitHub <small>facerecog/auto-ssh-tunnel</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/facerecog/auto-ssh-tunnel/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/facerecog/auto-ssh-tunnel/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/facerecog/auto-ssh-tunnel">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h1>
 
 <p>Automatic SSH Tunnel is a PYTHON script which can be used to create a reverse ssh tunnel between multiple computers running Linux and a centralized server.</p>
@@ -70,11 +70,13 @@ Then give the execution permission to the setup.py script and run it:</p>
 <p>$ sudo python setup.py install
 The first time you run setup.py install, you'll be guided through a wizard in order to configure ssh as a [S]erver or a [C]lient.</p>
 
-<p>Configuration wizard</p>
+<h2>
+<a id="configuration-wizard" class="anchor" href="#configuration-wizard" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration wizard</h2>
 
 <p>The configuration wizard is pretty self-explanatory. One thing to notice is that you will generate a current_directory/. The file to current_directory/ is your pem key to enable this client to ssh to the server without the use of password. During the setup.py install, a public key will be pushed to the server and saved in /.ssh/authorized_keys You should never exchange your private pem keys to others.</p>
 
-<p>Configuration as a Client</p>
+<h2>
+<a id="configuration-as-a-client" class="anchor" href="#configuration-as-a-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration as a Client</h2>
 
 <p>Generating public/private rsa key pair.
 Enter file in which to save the key (/home/anonymouse/.ssh/id_rsa): server
@@ -90,7 +92,8 @@ Configuration as a Server</p>
 <p>$ ifconfig
 Port forward your IP address to port 22 on your modem or router</p>
 
-<p>Available commands</p>
+<h2>
+<a id="available-commands" class="anchor" href="#available-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available commands</h2>
 
 <p>connect.py; Manually connect the client to the server
 Tested Environments</p>
@@ -104,25 +107,13 @@ Customer Service and Support</p>
 <p>Email: <a href="mailto:muhd.amrullah@facerecog.asia">muhd.amrullah@facerecog.asia</a></p>
 
 <p>Property of Facerecog Asia Pte. Ltd. and 26 Factorial</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/facerecog/auto-ssh-tunnel/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/facerecog/auto-ssh-tunnel/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/facerecog/auto-ssh-tunnel"></a> is maintained by <a href="https://github.com/facerecog">facerecog</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/facerecog">facerecog</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-
-  
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
