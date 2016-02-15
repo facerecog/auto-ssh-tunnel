@@ -45,7 +45,7 @@
 <li><p>Automatically generates ssh keys</p></li>
 <li><p>No need to store the server's password</p></li>
 <li><p>Works with Debian-based systems, including Ubuntu</p></li>
-<li><p>3-step configuration wizard that requires less than 1 minute to set-up</p></li>
+<li><p>3-step configuration wizard that requires less than 1 minute to set-up  </p></li>
 </ul>
 
 <h3>
@@ -53,7 +53,7 @@
 
 <ul>
 <li><p>These instructions were tested on Ubuntu 15.10</p></li>
-<li><p>The installation script automatically installs openssh-server with Apt</p></li>
+<li><p>The installation script automatically installs openssh-server with Apt  </p></li>
 </ul>
 
 <h1>
@@ -73,8 +73,8 @@
 <code>$ wget ______ &amp;&amp; tar xf ______</code>  </p>
 
 <ol>
-<li>Run configuration.py to specify the port, username, and IP address of the SSH server:
-$ python configure.py   <br>
+<li>Run  configuration.py  to specify the port, username, and IP address of the SSH server:
+<code>$ python configure.py &lt;port&gt; &lt;username&gt; &lt;ip address&gt;</code>
 </li>
 </ol>
 
@@ -82,22 +82,22 @@ $ python configure.py   <br>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
 
 <ol>
-<li><p>Run the following command:
+<li><p>Run the following command:<br>
 <code>$ sudo python setup.py install</code>  </p></li>
 <li><p>Enter the server’s @ as prompted  </p></li>
 <li><p>You will be prompted for a passphrase. Give a <strong>blank</strong> passphrase.  </p></li>
 </ol>
 
-<p>The installation will proceed automatically. If successful, the output of all the commands should roughly show</p>
+<p>The installation will proceed automatically. If successful, the output of all the commands should roughly show:</p>
 
-<p>`Reading package lists... Done
-Building dependency tree<br>
+<pre><code>Reading package lists... Done
+Building dependency tree       
 Reading state information... Done
 openssh-server is already the newest version.
 0 upgraded, 0 newly installed, 0 to remove and 118 not upgraded.
-What is the server's rootname@ipaddress?: "@"
-[<em>] Installing autossh client...
-[</em>] Installing autossh as startup application...
+What is the server's rootname@ipaddress?: "&lt;username&gt;@&lt;ip address&gt;"
+[*] Installing autossh client...
+[*] Installing autossh as startup application...
 mkdir: cannot create directory ‘.ssh’: File exists
 yes: standard output: Broken pipe
 yes: write error
@@ -106,75 +106,55 @@ Enter file in which to save the key (/root/.ssh/id_rsa): priv_key already exists
 Overwrite (y/n)? [*] Copying SSH-Keys file over to server...
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-"@" 's password: 
-Number of key(s) added: 1</p>
+"&lt;username&gt;@&lt;ip address&gt;" 's password: 
+Number of key(s) added: 1
 
-<p>Now try logging into the machine, with:   "ssh ' "@" '"
-and check to make sure that only the key(s) you wanted were added.</p>
+Now try logging into the machine, with:   "ssh ' "&lt;username&gt;@&lt;ip address&gt;" '"
+and check to make sure that only the key(s) you wanted were added.
 
-<p>[<em>] Installing private keys inside protected folder...
+[*] Installing private keys inside protected folder...
 yes: standard output: Broken pipe
 yes: write error
-[</em>] Moving autossh client into the /usr/local/bin/ directory...
+[*] Moving autossh client into the /usr/local/bin/ directory...
 [*] Moving private key to /etc/auto-ssh-tunnel/
 mkdir: cannot create directory ‘/etc/auto-ssh-tunnel’: File exists
 yes: standard output: Broken pipe
-yes: write error</p>
+yes: write error
 
-<p>[*] We are now finished with the installation! Restart the client to complete the installation. To run autossh, input connect.py on the terminal.`  </p>
+[*] We are now finished with the installation! Restart the client to complete the installation. To run autossh, input connect.py on the terminal.
+</code></pre>
 
-<hr>
+<h1>
+<a id="how-the-script-works" class="anchor" href="#how-the-script-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>How the script works</strong>
+</h1>
 
-<p>First, clone the repository using git (recommended):</p>
+<h1>
+<a id="verify-that-it-works" class="anchor" href="#verify-that-it-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Verify that it works</strong>
+</h1>
 
-<p>$ git clone <a href="https://github.com/facerecog/auto-ssh-tunnel/">https://github.com/facerecog/auto-ssh-tunnel/</a>
-Then change the PORT and the IP ADDRESS of the server we are connecting to:</p>
+<ul>
+<li><p>From the client, ssh into your server:
+<code>$ ssh &lt;rootname&gt;@&lt;ip address&gt;</code>  </p></li>
+<li><p>Once in, connect back to your client:
+<code>$ ssh &lt;your username&gt;@localhost -p &lt;port number specified as above&gt;</code></p></li>
+<li><p>If successful, you have just ssh-ed back into your client. Congratulations and enjoy!</p></li>
+</ul>
 
-<p>$ cd Client
-$ nano connect.py
-location_of_pem_file = "/home/install/Downloads/auto-ssh-tunnel/server"
-port_open = "50000"
-username_ipaddress = "server@192.168.1.202"
-Then give the execution permission to the setup.py script and run it:</p>
+<h1>
+<a id="uninstall" class="anchor" href="#uninstall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Uninstall</strong>
+</h1>
 
-<p>$ sudo python setup.py install
-The first time you run setup.py install, you'll be guided through a wizard in order to configure ssh as a [S]erver or a [C]lient.</p>
+<h1>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Screenshots</strong>
+</h1>
 
-<h3>
-<a id="configuration-wizard" class="anchor" href="#configuration-wizard" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration wizard</h3>
-
-<p>The configuration wizard is pretty self-explanatory. One thing to notice is that you will generate a current_directory/. The file to current_directory/ is your pem key to enable this client to ssh to the server without the use of password. During the setup.py install, a public key will be pushed to the server and saved in /.ssh/authorized_keys You should never exchange your private pem keys to others.</p>
-
-<h3>
-<a id="configuration-as-a-client" class="anchor" href="#configuration-as-a-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration as a Client</h3>
-
-<p>Generating public/private rsa key pair.
-Enter file in which to save the key (/home/anonymouse/.ssh/id_rsa): server
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in server.
-Your public key has been saved in server.pub.
-The key fingerprint is:
-bb:c6:9c:ee:6b:c0:67:58:b2:bb:4b:44:72:d3:cc:a5 localhost@localhost
-The key's randomart image is:
-Configuration as a Server</p>
-
-<p>$ ifconfig
-Port forward your IP address to port 22 on your modem or router</p>
-
-<h3>
-<a id="available-commands" class="anchor" href="#available-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available commands</h3>
-
-<p>connect.py; Manually connect the client to the server
-Tested Environments</p>
-
-<p>Raspberry Pi
-Ubuntu 14.04 LTS
-Customer Service and Support</p>
+<h1>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Support</strong>
+</h1>
 
 <p>If you want to support this project, please consider reaching out to me:</p>
 
-<p>Email: <a href="mailto:muhd.amrullah@facerecog.asia">muhd.amrullah@facerecog.asia</a></p>
+<p>Email: <a href="mailto:muhd.amrullah@facerecog.asia">muhd.amrullah@facerecog.asia</a>  </p>
 
 <p>Property of Facerecog Asia Pte. Ltd. and 26 Factorial</p>
         </section>
