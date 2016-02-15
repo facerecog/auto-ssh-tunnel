@@ -41,20 +41,19 @@
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h3>
 
 <ul>
-<li><p>Automatically configures and runs <code>openssh</code> to set up a reverse ssh connection during boot up </p></li>
-<li><p>Automatically generates ssh keys.</p></li>
+<li><p>Automatically configures and runs openssh to set-up a reverse ssh connection during boot-up </p></li>
+<li><p>Automatically generates ssh keys</p></li>
 <li><p>No need to store the server's password</p></li>
 <li><p>Works with Debian-based systems, including Ubuntu</p></li>
-<li><p>3-step configuration wizard that requires less than 1 minute to set up</p></li>
+<li><p>3-step configuration wizard that requires less than 1 minute to set-up</p></li>
 </ul>
 
-<h1>
-<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>System requirements</strong>
-</h1>
+<h3>
+<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System requirements</h3>
 
 <ul>
-<li><p>These instructions were tested on Ubuntu 15.10. </p></li>
-<li><p>The installation script automatically installs openssh-server with Apt.</p></li>
+<li><p>These instructions were tested on Ubuntu 15.10</p></li>
+<li><p>The installation script automatically installs openssh-server with Apt</p></li>
 </ul>
 
 <h1>
@@ -64,31 +63,34 @@
 <h3>
 <a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h3>
 
-<p>Ubuntu: 
-Clone the latest repository version from Github (recommended):
-$ git clone <a href="https://github.com/facerecog/auto-ssh-tunnel.git">https://github.com/facerecog/auto-ssh-tunnel.git</a></p>
+<ol>
+<li>Clone the latest repository version from Github (recommended):<br>
+<code>$ git clone https://github.com/facerecog/auto-ssh-tunnel.git</code><br>
+</li>
+</ol>
 
-<p>Alternatively, download the .tar.gz file from the top of this page and unpack it:</p>
+<p>Alternatively, download the .tar.gz  file from the top of this page and unpack it:<br>
+<code>$ wget ______ &amp;&amp; tar xf ______</code>  </p>
 
-<p>$ wget ______ &amp;&amp; tar xf ______</p>
+<ol>
+<li>Run configuration.py to specify the port, username, and IP address of the SSH server:
+$ python configure.py   <br>
+</li>
+</ol>
 
-<p>Run configuration.py to specify the port, username, and IP address of the SSH server:</p>
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>$ python configure.py   
-Installation
-Run the following command:</p>
+<ol>
+<li><p>Run the following command:
+<code>$ sudo python setup.py install</code>  </p></li>
+<li><p>Enter the server’s @ as prompted  </p></li>
+<li><p>You will be prompted for a passphrase. Give a <strong>blank</strong> passphrase.  </p></li>
+</ol>
 
-<p>$ sudo python setup.py install</p>
+<p>The installation will proceed automatically. If successful, the output of all the commands should roughly show</p>
 
-<p>Enter the server’s @ as prompted:</p>
-
-<p>What is the server’s rootname@ipaddress?:</p>
-
-<p>You will be prompted for passphrase. Give a blank passphrase.</p>
-
-<p>The installation will proceed automatically. If successful, the output of all the commands should be roughly the following, and end with “[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.py on the terminal.”</p>
-
-<p>Reading package lists... Done
+<p>`Reading package lists... Done
 Building dependency tree<br>
 Reading state information... Done
 openssh-server is already the newest version.
@@ -119,7 +121,7 @@ mkdir: cannot create directory ‘/etc/auto-ssh-tunnel’: File exists
 yes: standard output: Broken pipe
 yes: write error</p>
 
-<p>[*] We are now finished with the installation! Restart the client to complete the installation. To run autossh, input connect.py on the terminal.</p>
+<p>[*] We are now finished with the installation! Restart the client to complete the installation. To run autossh, input connect.py on the terminal.`  </p>
 
 <hr>
 
