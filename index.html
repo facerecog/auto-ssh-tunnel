@@ -28,7 +28,71 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>
+          <p>Automatic SSH Tunnel is a PYTHON script which can be used to create a reverse ssh tunnel between multiple computers running Linux and a centralized server.</p>
+
+<p>It's written in PYTHON scripting language.</p>
+
+<p>Why use this script?</p>
+
+<p>Portable: It's written in PYTHON scripting and only needs openSSH-server (openSSH-server is a tool to enable computers to behave as a pseudo server to ensure a successful reverse tunnelling).
+Secure: It requires a USB hardware physical transfer of the ssh keys.
+Features</p>
+
+<p>Unix-enabled
+No password required or stored
+Simple step-by-step configuration wizard
+Takes less than 1 minute to fully set-up
+Getting started</p>
+
+<p>First, clone the repository using git (recommended):</p>
+
+<p>$ git clone <a href="https://github.com/facerecog/auto-ssh-tunnel/">https://github.com/facerecog/auto-ssh-tunnel/</a>
+Then change the PORT and the IP ADDRESS of the server we are connecting to:</p>
+
+<p>$ cd Client
+$ nano connect.py
+location_of_pem_file = "/home/install/Downloads/auto-ssh-tunnel/server"
+port_open = "50000"
+username_ipaddress = "server@192.168.1.202"
+Then give the execution permission to the setup.py script and run it:</p>
+
+<p>$ sudo python setup.py install
+The first time you run setup.py install, you'll be guided through a wizard in order to configure ssh as a [S]erver or a [C]lient.</p>
+
+<p>Configuration wizard</p>
+
+<p>The configuration wizard is pretty self-explanatory. One thing to notice is that you will generate a current_directory/. The file to current_directory/ is your pem key to enable this client to ssh to the server without the use of password. During the setup.py install, a public key will be pushed to the server and saved in /.ssh/authorized_keys You should never exchange your private pem keys to others.</p>
+
+<p>Configuration as a Client</p>
+
+<p>Generating public/private rsa key pair.
+Enter file in which to save the key (/home/anonymouse/.ssh/id_rsa): server
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in server.
+Your public key has been saved in server.pub.
+The key fingerprint is:
+bb:c6:9c:ee:6b:c0:67:58:b2:bb:4b:44:72:d3:cc:a5 localhost@localhost
+The key's randomart image is:
+Configuration as a Server</p>
+
+<p>$ ifconfig
+Port forward your IP address to port 22 on your modem or router</p>
+
+<p>Available commands</p>
+
+<p>connect.py; Manually connect the client to the server
+Tested Environments</p>
+
+<p>Raspberry Pi
+Ubuntu 14.04 LTS
+Customer Service and Support</p>
+
+<p>If you want to support this project, please consider reaching out to me:</p>
+
+<p>Email: <a href="mailto:muhd.amrullah@facerecog.asia">muhd.amrullah@facerecog.asia</a></p>
+
+<h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
