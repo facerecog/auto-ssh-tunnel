@@ -125,6 +125,16 @@ yes: write error
 <a id="how-the-script-works" class="anchor" href="#how-the-script-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>How the script works</strong>
 </h1>
 
+<p>During installation, the script will automatically add the following lines to /etc/ssh/ssh_config:</p>
+
+<pre><code>ServerAliveInterval 30
+ServerAliveCountMax 4
+ClientAliveInterval 30
+ClientAliveCountMax 4
+</code></pre>
+
+<p>Upon boot, the client will run <code>connect.py</code>, which sets up a reverse ssh tunnel. The server may now ssh into the client even if the client resides behind a NAT firewall.</p>
+
 <hr>
 
 <h1>
@@ -145,10 +155,10 @@ yes: write error
 <a id="uninstall" class="anchor" href="#uninstall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Uninstall</strong>
 </h1>
 
-<p>To uninstall:<br>
-<code>$ rm -rf /etc/init.d/connect.py /etc/auto-ssh-tunnel /usr/local/bin/connect.py</code>  </p>
+<p>To uninstall:  </p>
 
-<hr>
+<h2>
+<a id="-rm--rf-etcinitdconnectpy-etcauto-ssh-tunnel-usrlocalbinconnectpy--" class="anchor" href="#-rm--rf-etcinitdconnectpy-etcauto-ssh-tunnel-usrlocalbinconnectpy--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>$ rm -rf /etc/init.d/connect.py /etc/auto-ssh-tunnel /usr/local/bin/connect.py</code>  </h2>
 
 <h1>
 <a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Screenshots</strong>
