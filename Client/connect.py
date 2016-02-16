@@ -28,4 +28,6 @@ def run_ssh():
         print "Failed. Please check your config file."
 
 #Main Command
-ssh_running()
+
+if __name__ == "__main__":
+    ssh_running()

@@ -7,6 +7,8 @@ import sys
 import os
 import platform
 
+from Client import connect
+
 # if nix then run installer
 if platform.system() == "Linux":
     # give installer a null value
@@ -56,7 +58,7 @@ if platform.system() == "Linux":
 	
 	# if installation is done on client, the autossh automatically kicks in the daemon
 	try:
-	    rootname = raw_input("What is the server's rootname@ipaddress?: ")
+	    rootname = connect.username_ipaddress
 	    print("[*] Installing autossh client...")
 
 	    print("[*] Installing autossh as startup application...")
