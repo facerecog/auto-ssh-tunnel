@@ -6,7 +6,7 @@ import subprocess
 location_of_pem_file = "/etc/auto-ssh-tunnel/priv_key"
 # configure.py will automatically edit port_open and username_ipaddress
 port_open = "50000"
-username_ipaddress = "server@192.168.0.4"
+username_ipaddress = ""
 
 # A function that checks if there is an existing ssh process running in the backgroun:
 def ssh_running():

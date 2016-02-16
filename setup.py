@@ -59,6 +59,10 @@ if platform.system() == "Linux":
 	# if installation is done on client, the autossh automatically kicks in the daemon
 	try:
 	    rootname = connect.username_ipaddress
+            if rootname == "":
+                print "Please run configure.py first."
+                sys.exit()
+                
 	    print("[*] Installing autossh client...")
 
 	    print("[*] Installing autossh as startup application...")
