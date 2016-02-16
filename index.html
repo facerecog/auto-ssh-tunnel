@@ -52,7 +52,7 @@
 <a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>System requirements</h3>
 
 <ul>
-<li><p>These instructions were tested on Ubuntu 15.10</p></li>
+<li><p>These instructions were tested on Ubuntu 15.10, Ubuntu 14.04.3, and Raspbian Jessie (Raspberry Pi)</p></li>
 <li><p>The installation script automatically installs openssh-server with Apt  </p></li>
 </ul>
 
@@ -124,11 +124,15 @@ yes: write error
 <a id="how-the-script-works" class="anchor" href="#how-the-script-works" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>How the script works</strong>
 </h1>
 
-<p>During installation, the script will automatically add the following lines to /etc/ssh/ssh_config:</p>
+<p>During installation, the script will automatically append the following lines to /etc/ssh/ssh_config:</p>
 
 <pre><code>ServerAliveInterval 30
 ServerAliveCountMax 4
-ClientAliveInterval 30
+</code></pre>
+
+<p>It will also append the following to /etc/ssh/sshd_config</p>
+
+<pre><code>ClientAliveInterval 30
 ClientAliveCountMax 4
 </code></pre>
 
