@@ -96,7 +96,7 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
 	    print("[*] Moving private key to /etc/auto-ssh-tunnel/")
             subprocess.Popen("mkdir /etc/auto-ssh-tunnel", shell=True)
             print "[*] /etc/auto-ssh-tunnel/ created"
-            subprocess.Popen("yes | cp priv_key /etc/auto-ssh-tunnel/priv_key", shell=True).wait()
+            subprocess.Popen("yes | cp priv_key /etc/auto-ssh-tunnel/priv_key", shell=True)
 	except subprocess.CalledProcessError as e:
 	    pass
 	
