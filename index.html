@@ -111,6 +111,12 @@
 <h3>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
 
+<p><strong><em>Additional instructions for Mac OS X Users</em></strong></p>
+
+<p><em>Go to:<br>
+System Preferences &gt; Sharing. Turn on "Remote Login". Allow access for "All Users".</em>
+   </p>
+
 <ol>
 <li><p>Run  configuration.py  to specify the port, username, and IP address of the SSH server:
 <code>$ python configure.py &lt;port&gt; &lt;username&gt; &lt;ip address&gt;</code> </p></li>
@@ -202,7 +208,7 @@ ClientAliveCountMax 4
 </h1>
 
 <p>To uninstall:
-<code>$ rm -rf /etc/init.d/connect.py /etc/auto-ssh-tunnel /usr/local/bin/connect.py</code>  </p>
+<code>$ sudo rm -rf /etc/init.d/connect.py /etc/auto-ssh-tunnel /usr/local/bin/connect.py /System/Library/StartupItems/auto-ssh-tunnel/</code>  </p>
 
 <hr>
 
