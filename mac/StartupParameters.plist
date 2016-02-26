@@ -1,0 +1,5 @@
+{
+    Description     = "auto-ssh-config from FaceRecog";
+    Provides        = ("auto-ssh-config");
+    OrderPreference = "None";
+}
