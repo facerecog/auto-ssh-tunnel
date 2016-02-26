@@ -102,7 +102,7 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
 	# if the installation has been successful
 	if os.path.isfile("/usr/local/bin/connect.py"):
 	    print("[*] We are now finished! Restart the client to complete the installation. To run autossh, input connect.py on the terminal")
-	    subprocess.Popen("connect.py", shell=True)
+	    subprocess.Popen("sudo /usr/local/bin/connect.py", shell=True)
 	else:
 	    print("[!] Installation has failed. Please ensure that connect.py and .pub file is installed")
 
