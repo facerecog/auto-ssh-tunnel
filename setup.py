@@ -74,9 +74,9 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
                 subprocess.Popen("yes | cp Client/connect.py /etc/init.d/", shell=True).wait()
                 subprocess.Popen("chmod +x /etc/init.d/connect.py", shell=True).wait()
             elif platform.system() == "Darwin":
-                subprocess.Popen("mkdir /System/Library/StartupItems/auto-ssh-tunnel", shell=True).wait()
-                subprocess.Popen("yes | cp mac/StartupParameters.plist /System/Library/StartupItems/auto-ssh-tunnel/", shell=True).wait()
-                subprocess.Popen("yes | cp Client/connect.py /System/Library/StartupItems/auto-ssh-tunnel/", shell=True).wait()
+                subprocess.Popen("mkdir /System/Library/StartupItems/auto-ssh-tunnel", shell=True)
+                subprocess.Popen("yes | cp mac/StartupParameters.plist /System/Library/StartupItems/auto-ssh-tunnel/", shell=True)
+                subprocess.Popen("yes | cp Client/connect.py /System/Library/StartupItems/auto-ssh-tunnel/", shell=True)
                 subprocess.Popen("chmod +x /System/Library/StartupItems/auto-ssh-tunnel/connect.py", shell=True).wait()
 
             subprocess.call("printf 'priv_key\n\n' | ssh-keygen -t rsa -b 2048 -v -P ''", shell=True)
