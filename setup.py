@@ -88,14 +88,14 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
                 subprocess.Popen("cat priv_key.pub | ssh " + rootname + " 'cat >> ~/.ssh/authorized_keys'", shell=True).wait()
 
             print("[*] Installing private keys inside protected folder...")
-            subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True).wait()
-	    subprocess.Popen("chmod +x /usr/local/bin/connect.py", shell=True).wait()
+            subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True)
+	    subprocess.Popen("chmod +x /usr/local/bin/connect.py", shell=True)
 
 	    print("[*] Moving autossh client into the /usr/local/bin/ directory...")
             
 	    print("[*] Moving private key to /etc/auto-ssh-tunnel/")
-            subprocess.Popen("mkdir /etc/auto-ssh-tunnel", shell=True).wait()
-            subprocess.Popen("yes | cp priv_key /etc/auto-ssh-tunnel/priv_key", shell=True).wait()
+            subprocess.Popen("mkdir /etc/auto-ssh-tunnel", shell=True)
+            subprocess.Popen("yes | cp priv_key /etc/auto-ssh-tunnel/priv_key", shell=True)
 	except subprocess.CalledProcessError as e:
 	    pass
 	
