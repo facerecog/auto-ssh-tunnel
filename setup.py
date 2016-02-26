@@ -68,7 +68,7 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
 	    print("[*] Installing autossh client...")
 
 	    print("[*] Installing autossh as startup application...")
-	    subprocess.Popen("cd && mkdir .ssh", shell=True).wait()
+	    subprocess.Popen("cd && mkdir .ssh", shell=True)
 
             if platform.system() == "Linux":
                 subprocess.Popen("yes | cp Client/connect.py /etc/init.d/", shell=True).wait()
