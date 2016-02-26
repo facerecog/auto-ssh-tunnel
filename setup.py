@@ -82,7 +82,10 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
             subprocess.call("printf 'priv_key\n\n' | ssh-keygen -t rsa -b 2048 -v -P ''", shell=True)
 
 	    print("[*] Copying SSH-Keys file over to server...")
-	    subprocess.call(['ssh-copy-id', '-i', 'priv_key.pub', rootname])
+            if platform.system() == "Linux":
+                subprocess.call(['ssh-copy-id', '-i', 'priv_key.pub', rootname])
+            elif platform.system() == "Darwin":
+                subprocess.Popen("cat priv_key.pub | ssh " + rootname + " 'cat >> ~/.ssh/authorized_keys'", shell=True).wait()
 
             print("[*] Installing private keys inside protected folder...")
             subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True).wait()
