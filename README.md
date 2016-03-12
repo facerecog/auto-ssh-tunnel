@@ -1,7 +1,18 @@
-# **Overview**
+<img src="https://raw.githubusercontent.com/facerecog/auto-ssh-tunnel/gh-pages/images/auto-ssh-tunnel%20logo.png" align="left" height="100" width="100" />
+
+&nbsp;
+
+&nbsp;
+&nbsp;
+&nbsp;  
+&nbsp;  
+
+
+#  **Overview**
 
 Automatic SSH Tunnel is a Python script which can be used to create a Reverse SSH Tunnel between multiple computers running Linux and a centralized server.
 
+Licensed under the MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
 
 ### Features
 
@@ -24,7 +35,33 @@ Automatic SSH Tunnel is a Python script which can be used to create a Reverse SS
 
 -----------------------
 
-# **Getting started**  
+#  **Animated Tutorial**
+
+<div style="float:left; width:100%">
+    <img src="https://raw.githubusercontent.com/facerecog/auto-ssh-tunnel/gh-pages/images/intro_video.gif" align="left" width=540px height=310px  /> 
+</div>
+
+
+&nbsp;
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+&nbsp;  
+
+-----------------------
+
+# **Getting started** 
+
 
 
 ### Download
@@ -41,7 +78,13 @@ Now `cd` into the newly extracted directory.
 
 ### Installation 
 
-1. Run  configuration.py  to specify the port, username, and IP address of the SSH server:
+__*Additional instructions for Mac OS X Users*__
+
+  *Go to:  
+System Preferences > Sharing. Turn on "Remote Login". Allow access for "All Users".*
+&nbsp;  
+
+1. Run  configuration.py  to specify the port, username, and IP address of the SSH server:  
 `$ python configure.py <port> <username> <ip address>` 
 
 2. Run the following command:  
@@ -114,10 +157,17 @@ Upon boot, the client will run `connect.py`, which sets up a reverse ssh tunnel.
 
 -------------------------
 
+# **Reverse SSH Tunnel Diagram**  
+
+<img src="https://raw.githubusercontent.com/facerecog/auto-ssh-tunnel/gh-pages/images/Client-server%20diagram.png"/>
+
+
+-------------------------
+
 # **Uninstall**  
 
 To uninstall:
-`$ rm -rf /etc/init.d/connect.py /etc/auto-ssh-tunnel /usr/local/bin/connect.py`  
+`$ sudo rm -rf /etc/init.d/connect.py /etc/auto-ssh-tunnel /usr/local/bin/connect.py /System/Library/StartupItems/auto-ssh-tunnel/`  
 
 
 -------------------------
