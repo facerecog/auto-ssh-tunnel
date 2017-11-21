@@ -88,7 +88,7 @@ System Preferences > Sharing. Turn on "Remote Login". Allow access for "All User
 `$ python configure.py <port> <username> <ip address>` 
 
 2. Run the following command:  
-`$ sudo python setup.py install`  
+`$ sudo python setup.py install <custom ssh port (optional)>`  
 
 The installation will proceed automatically. If successful, the output of all the commands should roughly show:
 
