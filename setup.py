@@ -23,6 +23,11 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
 	# if our command option is true then install dependencies
 	if sys.argv[1] == "install":
 	    installer = True
+	    # check for custom ssh ports
+	    if not sys.argv[2]:
+	        ssh_port = 22
+	    else:
+		ssh_port = sys.argv[2]
 
     # if index is out of range then flag options
     except IndexError:
@@ -84,9 +89,9 @@ if platform.system() == "Linux" or platform.system() == "Darwin":
 
 	    print("[*] Copying SSH-Keys file over to server...")
             if platform.system() == "Linux":
-                subprocess.call(['ssh-copy-id', '-i', 'priv_key.pub', rootname])
+                subprocess.call(['ssh-copy-id', '-i', 'priv_key.pub', rootname, '-p', ssh_port])
             elif platform.system() == "Darwin":
-                subprocess.Popen("cat priv_key.pub | ssh " + rootname + " 'cat >> ~/.ssh/authorized_keys'", shell=True).wait()
+                subprocess.Popen("cat priv_key.pub | ssh -p" + ssh_port + " " + rootname + " 'cat >> ~/.ssh/authorized_keys'", shell=True).wait()
 
             print("[*] Installing private keys inside protected folder...")
             subprocess.Popen("yes | cp Client/connect.py /usr/local/bin/", shell=True)
